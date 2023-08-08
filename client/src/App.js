@@ -4,16 +4,16 @@ import React from'react';
 import './App.css';
 
 // import components
-import DamageNr from './components/DamageNr';
+import DamageData from './components/Damage';
 
 
 
 function App() {
   return(
     <div className='App'>
-      <h1>Hello</h1>
+      <h1>Damage Card</h1>
       <div className='damageNr'>
-        <DamageNr />
+        <DamageData />
       </div>
     </div>
   );
