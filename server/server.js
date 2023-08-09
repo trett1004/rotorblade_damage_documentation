@@ -20,7 +20,7 @@ app.post('/api', (req, res) => {
         return data;
     })
     .then((data) => {
-        fs.writeFile('database.json', JSON.stringify(data))
+        fs.writeFile('database.json', JSON.stringify(data, null, 2))
         return data;
     })
     .then((data) => {
