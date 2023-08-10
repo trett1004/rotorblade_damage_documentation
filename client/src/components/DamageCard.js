@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 
-function DamageData() {
+function DamageCard() {
   const [damageCard, setDamageCard] = useState({
     damageNr: 0,
     date: new Date().toISOString().slice(0, 10),
@@ -40,11 +40,6 @@ function DamageData() {
   return (
     <div className="damageCardForm">
 
-
-
-
-
-
       <label>Damage Number</label>
       <br></br>
       <input type='number' name='damageNr' value={damageCard.damageNr} onChange={handleChange} required />
@@ -77,22 +72,10 @@ function DamageData() {
 
       <div>
         <form>
-          <input
-            type='radio'
-            name='edge'
-            value='leading_edge'
-            checked={damageCard.edge === 'leading_edge'}
-            onChange={handleRadioButton}
-          />
+          <input type='radio' name='edge' value='leading_edge' checked={damageCard.edge === 'leading_edge'} onChange={handleRadioButton} />
           <label>Leading Edge</label>
 
-          <input
-            type='radio'
-            name='edge'
-            value='trailing_edge'
-            checked={damageCard.edge === 'trailing_edge'}
-            onChange={handleRadioButton}
-          />
+          <input type='radio' name='edge' value='trailing_edge' checked={damageCard.edge === 'trailing_edge'} onChange={handleRadioButton} />
           <label>Trailing Edge</label>
         </form>
       </div>
@@ -101,21 +84,10 @@ function DamageData() {
 
       <div>
         <form>
-          <input
-            type='radio'
-            name='side'
-            value='suction_side'
-            checked={damageCard.side === 'suction_side'}
-            onChange={handleRadioButton}
-          />
+          <input type='radio' name='side' value='suction_side' checked={damageCard.side === 'suction_side'} onChange={handleRadioButton} />
           <label>Suction Side</label>
 
-          <input
-            type='radio'
-            name='side'
-            value='pressure_side'
-            checked={damageCard.side === 'pressure_side'}
-            onChange={handleRadioButton}
+          <input type='radio' name='side' value='pressure_side' checked={damageCard.side === 'pressure_side'} onChange={handleRadioButton}
           />
           <label>Pressure Side</label>
         </form>
@@ -123,10 +95,10 @@ function DamageData() {
       <br></br> <br></br>
 
       <br></br><br></br>
-      <button onClick={handleSubmit}>Save</button>
+      <button onClick={handleSubmit}>Save Damage</button>
     </div>
 
   );
 }
 
-export default DamageData;
+export default DamageCard;

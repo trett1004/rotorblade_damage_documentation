@@ -1,27 +1,29 @@
+// External imports
 const officegen = require('officegen')
 const fs = require('fs')
 
+// Internal imports
 const dataArray = require('./database.json');
 console.log('dataArray', dataArray)
-
-
 
 // Create an empty Word object:
 let docx = officegen('docx')
 
-// Officegen calling this function after finishing to generate the docx document:
-docx.on('finalize', function(written) {
-  console.log(
-    'Finish to create a Microsoft Word document.'
-  )
-})
+// Function for generating the docx document:
+const generateDocx = (data) => {
+  // Officegen calling this function after finishing to generate the docx document:
+  docx.on('finalize', function (written) {
+    console.log(
+      'Finish to create a Microsoft Word document.'
+    )
+  })
 
-// Officegen calling this function to report errors:
-docx.on('error', function(err) {
-  console.log(err)
-})
+  // Officegen calling this function to report errors:
+  docx.on('error', function (err) {
+    console.log(err)
+  })
 
-dataArray.forEach((item) => {
+  dataArray.forEach((item) => {
     console.log('item:', item)
     let pObj = docx.createP()
     pObj.addText(`Damage Nr: ${item['damageCard']['damageNr']}`, { bold: true, underline: true })
@@ -39,20 +41,22 @@ dataArray.forEach((item) => {
     pObj.addText(`Edge: ${item['damageCard']['edge']}`)
     pObj.addLineBreak()
     pObj.addText(`Side: ${item['damageCard']['side']}`)
-})
+  })
 
+  // generate the Word document into a file:
+  let out = fs.createWriteStream('report.docx')
 
-// Let's generate the Word document into a file:
+  out.on('error', function (err) {
+    console.log(err)
+  })
 
-let out = fs.createWriteStream('example.docx')
+  // Async call to generate the output file:
+  docx.generate(out)
+}
 
-out.on('error', function(err) {
-  console.log(err)
-})
+// generateDocx(dataArray);
 
-// Async call to generate the output file:
-docx.generate(out)
-
+module.exports = {generateDocx};
 // pObj.addText('Simple')
 // pObj.addText(' with color', { color: '000088' })
 // pObj.addText(' and back color.', { color: '00ffff', back: '000088' })
