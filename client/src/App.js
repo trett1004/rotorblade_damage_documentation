@@ -1,26 +1,30 @@
-
-// import internals
-import React from'react';
+import React from 'react';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+// Base layout
+import RootLayout from './layouts/RootLayout';
 
 // import components
-import DamageCard from './components/DamageCard';
+import Start from './components/Start';
 import CreateReport from './components/BtnGenerateReport';
-import Camera from './components/Camera';
-
+import Error from './components/Error';
 
 function App() {
-  return(
-    <div className='App'>
-      <h1>Damage Card</h1>
-      <div className='damageCard'>
-        <DamageCard />
-        <br></br>
-        <Camera />
-        <br></br>
-        <CreateReport />
+  return (
+    <Router>
+      <div className="App">
+        <div className="routerContainer">
+          <Routes>
+            <Route path="/" element={<RootLayout />} errorElement={<Error />}>
+              <Route index element={<Start />} />
+              <Route path="/generate_report" element={<CreateReport />} />
+              {/* <Route path="*" element={<NotFound />} /> */}
+            </Route>
+          </Routes>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 

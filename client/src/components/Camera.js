@@ -40,13 +40,14 @@ const Camera = () => {
 
     return (
       <>
+          <br></br>
+          <button onClick={capture}>Capture photo</button>
+          <br></br><br></br>
         <Webcam
           audio={false}
           ref={webcamRef}
           screenshotFormat="image/jpeg"
         />
-        <br></br>
-        <button onClick={capture}>Capture photo</button>
         <br></br>
         {imgSrc && (
           <img
@@ -56,7 +57,5 @@ const Camera = () => {
       </>
     );
   };
-  
 
-
-  export default Camera;
+export default Camera;

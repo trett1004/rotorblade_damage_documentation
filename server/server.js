@@ -75,4 +75,10 @@ app.post('/api/create_report', (req, res) => {
 })
 
 
+app.get('/api/get_report', (req, res) => {
+    console.log('hello there')
+    const reportFilePath = path.join(__dirname, 'report.docx');
+    res.sendFile(reportFilePath);
+});
+
 app.listen(port, () => console.log(`Server ready on ${port}`))

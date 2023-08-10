@@ -49,8 +49,9 @@ function DamageCard() {
 
 
   return (
-    <div className="damageCardForm">
 
+    <div className="damageCardForm">
+      <h1>Damage Card</h1>
       <label>Damage Number</label>
       <br></br>
       <input type='number' name='damageNr' value={damageCard.damageNr} onChange={handleChange} required />

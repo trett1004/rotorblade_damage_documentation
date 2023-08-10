@@ -24,5 +24,18 @@
       "side": "suction_side",
       "photo": "1691675190946.jpg"
     }
+  },
+  {
+    "updatedDamageCardWithPhoto": {
+      "damageNr": "1",
+      "date": "2023-08-10",
+      "windfarm": "Pppel",
+      "blade": 0,
+      "z": 0,
+      "profile_depth": 0,
+      "edge": "",
+      "side": "",
+      "photo": "1691699525438.jpg"
+    }
   }
 ]
