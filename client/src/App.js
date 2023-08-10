@@ -6,6 +6,7 @@ import './App.css';
 // import components
 import DamageCard from './components/DamageCard';
 import CreateReport from './components/BtnGenerateReport';
+import Camera from './components/Camera';
 
 
 function App() {
@@ -14,6 +15,8 @@ function App() {
       <h1>Damage Card</h1>
       <div className='damageCard'>
         <DamageCard />
+        <br></br>
+        <Camera />
         <br></br>
         <CreateReport />
       </div>

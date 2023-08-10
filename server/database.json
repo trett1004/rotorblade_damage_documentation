@@ -1,26 +1,28 @@
 [
   {
-    "damageCard": {
+    "updatedDamageCardWithPhoto": {
       "damageNr": "1",
-      "date": "2023-08-17",
-      "windfarm": "fdf",
+      "date": "2023-08-10",
+      "windfarm": "NOrdesse",
       "blade": "1",
-      "z": "234",
-      "profile_depth": "4",
-      "edge": "trailing_edge",
-      "side": "pressure_side"
+      "z": "22",
+      "profile_depth": "22",
+      "edge": "leading_edge",
+      "side": "pressure_side",
+      "photo": "1691675157936.jpg"
     }
   },
   {
-    "damageCard": {
-      "damageNr": "1",
-      "date": "2023-08-09",
-      "windfarm": "Nordsee",
-      "blade": "1",
-      "z": "25",
-      "profile_depth": "40",
-      "edge": "leading_edge",
-      "side": "suction_side"
+    "updatedDamageCardWithPhoto": {
+      "damageNr": "2",
+      "date": "2023-08-10",
+      "windfarm": "Hasenheide",
+      "blade": "3",
+      "z": "2222",
+      "profile_depth": "45522",
+      "edge": "trailing_edge",
+      "side": "suction_side",
+      "photo": "1691675190946.jpg"
     }
   }
 ]

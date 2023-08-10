@@ -12,9 +12,8 @@ function DamageCard() {
     profile_depth: 0,
     edge: '',
     side: '',
+    photo: ''
   });
-
-  console.log(damageCard);
 
   const handleChange = (e) => {
     console.log(e.target.name, e.target.value);
@@ -30,12 +29,24 @@ function DamageCard() {
   // post request to server
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('damage', damageCard)
-    axios.post('/api', { damageCard })
-      .then(console.log("test", typeof (damageCard)))
-      .then((res) => console.log('res', res.data))
-      .catch(error => console.error('Error sending data', error));
+    console.log('test handle submit');
+
+    axios.get("/api/upload")
+      .then((res) => {
+        const updatedDamageCardWithPhoto = ({ ...damageCard, photo: res.data.fileName});
+        setDamageCard(updatedDamageCardWithPhoto);
+        console.log('@@@', res.data.fileName);
+        return updatedDamageCardWithPhoto;
+      })
+      .then((updatedDamageCardWithPhoto) => {
+        console.log('damageCard', updatedDamageCardWithPhoto)
+        console.log('damageCard photo', updatedDamageCardWithPhoto.photo);
+        // Now, place the POST request here
+        return axios.post('/api', { updatedDamageCardWithPhoto });
+      })
+      .catch(error => console.error('Error in submitting', error));
   }
+
 
   return (
     <div className="damageCardForm">
