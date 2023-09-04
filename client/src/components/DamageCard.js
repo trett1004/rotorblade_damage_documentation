@@ -33,7 +33,7 @@ function DamageCard() {
 
     axios.get("/api/upload")
       .then((res) => {
-        const updatedDamageCardWithPhoto = ({ ...damageCard, photo: res.data.fileName});
+        const updatedDamageCardWithPhoto = ({ ...damageCard, photo: res.data.fileName });
         setDamageCard(updatedDamageCardWithPhoto);
         console.log('@@@', res.data.fileName);
         return updatedDamageCardWithPhoto;
@@ -52,36 +52,38 @@ function DamageCard() {
 
     <div className="damageCardForm">
       <h1>Damage Card</h1>
-      <label>Damage Number</label>
-      <br></br>
-      <input type='number' name='damageNr' value={damageCard.damageNr} onChange={handleChange} required />
-      <br></br> <br></br>
-
-      <label>Date</label>
-      <br></br>
-      <input type='date' name='date' value={damageCard.date} onChange={handleChange} required />
-      <br></br> <br></br>
-
-      <label>Windfarm</label>
-      <br></br>
-      <input type='text' name='windfarm' value={damageCard.windfarm} onChange={handleChange} required />
-      <br></br><br></br>
-
-      <label>Blade</label>
-      <br></br>
-      <input type='number' name='blade' value={damageCard.blade} onChange={handleChange} required />
-      <br></br><br></br>
-
-      <label>Z[mm]</label>
-      <br></br>
-      <input type='number' name='z' value={damageCard.z} onChange={handleChange} required />
-      <br></br><br></br>
-
-      <label>Profile depth [% from LE]</label>
-      <br></br>
-      <input type='number' name='profile_depth' value={damageCard.profile_depth} onChange={handleChange} required />
-      <br></br><br></br>
-
+      <div className='inputContainer'>
+        <div className='inputContainerItem'>
+          <label>Damage Number</label>
+          <input type='number' name='damageNr' value={damageCard.damageNr} onChange={handleChange} required />
+        </div>
+        <br></br>
+        <div className='inputContainerItem'>
+        <label>Date</label>
+        <input type='date' name='date' value={damageCard.date} onChange={handleChange} required />
+        </div>
+        <br></br>
+        <div className='inputContainerItem'>
+        <label>Windfarm</label>
+        <input type='text' name='windfarm' value={damageCard.windfarm} onChange={handleChange} required />
+        </div>
+        <br></br>
+        <div className='inputContainerItem'>
+        <label>Blade</label>
+        <input type='number' name='blade' value={damageCard.blade} onChange={handleChange} required />
+        </div>
+        <br></br>
+        <div className='inputContainerItem'>
+        <label>Z[mm]</label>
+        <input type='number' name='z' value={damageCard.z} onChange={handleChange} required />
+        </div>
+        <br></br>
+        <div className='inputContainerItem'>
+        <label>Profile depth [% from LE]</label>
+        <input type='number' name='profile_depth' value={damageCard.profile_depth} onChange={handleChange} required />
+        <br></br>
+        </div>
+      </div>
       <div>
         <form>
           <input type='radio' name='edge' value='leading_edge' checked={damageCard.edge === 'leading_edge'} onChange={handleRadioButton} />

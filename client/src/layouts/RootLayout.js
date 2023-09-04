@@ -12,11 +12,11 @@ export default function RootLayout() {
     function Header() {
         return (
             <header>
-                <div className='company-information-top-nav'>
+                <div className='App-header'>
 
                     <div className="company-information">
-                        <h1>Vertec Solutions</h1>
-                        <p>Digital Damage Card</p>
+                        <h1></h1>
+                        <p></p>
                     </div>
 
                     <div className='top-nav'>
